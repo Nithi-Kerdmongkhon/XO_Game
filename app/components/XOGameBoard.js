@@ -57,7 +57,7 @@ const XOGameBoard = ({ size, updateGameHistory, onResetHistory, replayMove }) =>
     const result = calculateResult(newBoard);
     if (result) {
       setStatus(result);
-      saveGameHistory(newHistory, result);
+      // saveGameHistory(newHistory, result);
     }
 
     setIsBotTurn(true); // Set bot's turn
@@ -86,7 +86,7 @@ const XOGameBoard = ({ size, updateGameHistory, onResetHistory, replayMove }) =>
       const result = calculateResult(newBoard);
       if (result) {
         setStatus(result);
-        saveGameHistory(newHistory, result);
+        // saveGameHistory(newHistory, result);
       }
 
       setIsBotTurn(false); // Human player's turn again
