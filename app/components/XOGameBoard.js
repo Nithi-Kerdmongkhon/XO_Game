@@ -1,38 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/XOGameBoard.css';
 
+// XOGameBoard component: ใช้สำหรับแสดงกระดาน XO และควบคุมการเล่นเกม
 const XOGameBoard = ({ size, updateGameHistory, onResetHistory, replayMove }) => {
-  const [board, setBoard] = useState([]);
-  const [history, setHistory] = useState([]);
-  const [status, setStatus] = useState('');
-  const [isBotTurn, setIsBotTurn] = useState(false); // State to track bot's turn
+  // ใช้ useState เพื่อเก็บสถานะต่างๆ ของเกม
+  const [board, setBoard] = useState([]); // สถานะของกระดาน
+  const [history, setHistory] = useState([]); // ประวัติการเล่น
+  const [status, setStatus] = useState(''); // สถานะของเกม (เช่น ใครชนะหรือเสมอ)
+  const [isBotTurn, setIsBotTurn] = useState(false); // ติดตามว่าเป็นตาของบอทหรือไม่
 
+  // ใช้ useEffect เพื่อรีเซ็ตกระดานเมื่อขนาดกระดานเปลี่ยน
   useEffect(() => {
     resetBoard(size);
   }, [size]);
 
+  // ใช้ useEffect เพื่อจัดการการเล่นซ้ำของประวัติการเล่น
   useEffect(() => {
     if (replayMove !== null) {
       handleReplayMove(replayMove);
     }
   }, [replayMove]);
 
+  // ใช้ useEffect เพื่อจัดการการเคลื่อนไหวของบอทด้วยการดีเลย์ 1 วินาที
   useEffect(() => {
     if (isBotTurn) {
-      // Call bot's move function with delay
-      setTimeout(handleBotMove, 1000); // 1000 milliseconds delay (1 second)
+      setTimeout(handleBotMove, 1000); // ดีเลย์ 1000 มิลลิวินาที (1 วินาที)
     }
   }, [isBotTurn]);
 
+  // ฟังก์ชันสำหรับรีเซ็ตกระดาน
   const resetBoard = (size) => {
     const newBoard = Array(size).fill(null).map(() => Array(size).fill(null));
     setBoard(newBoard);
     setHistory([]);
     setStatus('');
     onResetHistory();
-    setIsBotTurn(false); // Reset bot's turn
+    setIsBotTurn(false); // รีเซ็ตตาของบอท
   };
 
+  // ฟังก์ชันสำหรับการเล่นซ้ำจากประวัติการเล่น
   const handleReplayMove = (moveIndex) => {
     const newBoard = Array(size).fill(null).map(() => Array(size).fill(null));
     const moves = history.slice(0, moveIndex + 1);
@@ -42,6 +48,7 @@ const XOGameBoard = ({ size, updateGameHistory, onResetHistory, replayMove }) =>
     setBoard(newBoard);
   };
 
+  // ฟังก์ชันสำหรับการคลิกบนกระดาน
   const handleClick = (row, col) => {
     if (!board[row] || board[row][col] || status || isBotTurn) return;
 
@@ -57,12 +64,12 @@ const XOGameBoard = ({ size, updateGameHistory, onResetHistory, replayMove }) =>
     const result = calculateResult(newBoard);
     if (result) {
       setStatus(result);
-      // saveGameHistory(newHistory, result);
     }
 
-    setIsBotTurn(true); // Set bot's turn
+    setIsBotTurn(true); // เปลี่ยนเป็นตาของบอท
   };
 
+  // ฟังก์ชันสำหรับการเคลื่อนไหวของบอท
   const handleBotMove = () => {
     const availableMoves = [];
     for (let i = 0; i < size; i++) {
@@ -86,50 +93,51 @@ const XOGameBoard = ({ size, updateGameHistory, onResetHistory, replayMove }) =>
       const result = calculateResult(newBoard);
       if (result) {
         setStatus(result);
-        // saveGameHistory(newHistory, result);
       }
 
-      setIsBotTurn(false); // Human player's turn again
+      setIsBotTurn(false); // เปลี่ยนเป็นตาของผู้เล่นมนุษย์อีกครั้ง
     }
   };
 
+  // ฟังก์ชันสำหรับคำนวณผลลัพธ์ของเกม
   const calculateResult = (board) => {
     const size = board.length;
 
-    // Check rows and columns
+    // ตรวจสอบแถวและคอลัมน์
     for (let i = 0; i < size; i++) {
       if (board[i].every(cell => cell && cell === board[i][0])) {
-        return `Winner is ${board[i][0]}`; // Row winner
+        return `Winner is ${board[i][0]}`; // ผู้ชนะในแถว
       }
       if (board.every(row => row[i] && row[i] === board[0][i])) {
-        return `Winner is ${board[0][i]}`; // Column winner
+        return `Winner is ${board[0][i]}`; // ผู้ชนะในคอลัมน์
       }
     }
 
-    // Check main diagonal
+    // ตรวจสอบเส้นทแยงมุมหลัก
     if (board.every((row, index) => row[index] && row[index] === board[0][0])) {
       return `Winner is ${board[0][0]}`;
     }
 
-    // Check anti-diagonal
+    // ตรวจสอบเส้นทแยงมุมรอง
     if (board.every((row, index) => row[size - 1 - index] && row[size - 1 - index] === board[0][size - 1])) {
       return `Winner is ${board[0][size - 1]}`;
     }
 
-    // Check for draw
+    // ตรวจสอบการเสมอ
     if (board.flat().every(cell => cell)) {
       return 'Draw';
     }
 
-    // No winner or draw
+    // ไม่มีผู้ชนะหรือเสมอ
     return null;
   };
 
+  // ฟังก์ชันสำหรับการแสดงแต่ละช่องบนกระดาน
   const renderCell = (row, col) => {
-    if (!board[row]) return null; // Check if board[row] is undefined
+    if (!board[row]) return null; // ตรวจสอบว่า board[row] ไม่เป็น undefined
     const cellValue = board[row][col];
-    const cellClass = cellValue === 'X' ? 'cell X' : 'cell O'; // Add class based on cell value
-  
+    const cellClass = cellValue === 'X' ? 'cell X' : 'cell O'; // เพิ่ม class ตามค่าในช่อง
+
     return (
       <div className={cellClass} key={`${row}-${col}`} onClick={() => handleClick(row, col)}>
         {cellValue}
@@ -137,9 +145,10 @@ const XOGameBoard = ({ size, updateGameHistory, onResetHistory, replayMove }) =>
     );
   };
 
+  // แสดงผลกระดานเกม
   return (
     <div>
-       {status && <h2 className="status">{status}</h2>}
+      {status && <h2 className="status">{status}</h2>}
       <div className="board" style={{ gridTemplateColumns: `repeat(${size}, 128px)`, gridTemplateRows: `repeat(${size}, 128px)` }}>
         {board.flat().map((cell, index) => {
           const row = Math.floor(index / size);
@@ -147,7 +156,6 @@ const XOGameBoard = ({ size, updateGameHistory, onResetHistory, replayMove }) =>
           return renderCell(row, col);
         })}
       </div>
-     
       <button className="BTNReset" onClick={() => resetBoard(size)}>Reset Game</button>
     </div>
   );
