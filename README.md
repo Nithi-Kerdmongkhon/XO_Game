@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Setup And Run Project
   Step 1 : Install Visual Studio Code , node.js 
   
-  Step 2 : Open project XO_Game with Visual Studio Code.
+  Step 2 : Open project "XO_Game" with Visual Studio Code.
   
   Step 3 : Run project with the command 'npm run dev' on Terminal in Visual Studio Code.
 
