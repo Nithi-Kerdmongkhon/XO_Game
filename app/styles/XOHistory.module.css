@@ -18,10 +18,11 @@
   .table {
     width: 60%;
     border-collapse: collapse;
+    margin-bottom: 20px;
   }
   
   .table th, .table td {
-    border: 1px solid #ddd;
+    border: 1px solid #fff;
     padding: 8px;
     text-align: center;
   }
@@ -95,7 +96,21 @@
   .button.greenText:hover {
     background-color: #8eff8a; /* Light green on hover */
   }
+  @media (max-width: 768px) {
+    .table th,
+    .table td {
+      padding: 5px;
+    }
   
+    .table {
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+    }
+  
+    .button {
+      font-size: 12px;
+    }
+  }
  
  
   

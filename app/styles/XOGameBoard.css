@@ -33,7 +33,14 @@
   font-family: "Rowdies", sans-serif;
   font-size: 20px;
   border-radius: 10px;
-  height: 40px;
+  height: 50px;
+  width: 150px;
+  background-color: #fff;
+  box-shadow: none; /* ลบเงาหลังปุ่ม */
+}
+.BTNReset:hover{
+ 
+  background-color: #c5c5c5;
   
 }
 .status {
@@ -44,5 +51,17 @@
   padding: 10px; /* ระยะห่างภายใน */
   background-color: rgb(255, 217, 0); /* สีพื้นหลัง */
   border-radius: 8px; /* มุมโค้ง */
+}
+@media (max-width: 768px) {
+  .board {
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(64px, 1fr));
+    width: 80%;
+    margin: 10px ;
+  }
+  
+  .cell {
+    font-size: 1.5rem;
+  }
 }
 

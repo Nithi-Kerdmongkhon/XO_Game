@@ -28,15 +28,15 @@ const XOGameControls = ({ onSetSize }) => {
     <div className={style.container}>
       <form onSubmit={handleSubmit}>
         <label>
-          Enter Board Size :  &nbsp;
+          Board Size :  &nbsp;
           <input
-            type="number"
+            type="number" 
             value={size}
             onChange={handleInputChange}
-            min="3"
+            min=" 3"
             onKeyDown={(e) => {
               if (e.key === 'Backspace' && size.toString().length === 1) {
-                setSize('');
+                setSize(' ');
               }
             }}
           />

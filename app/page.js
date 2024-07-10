@@ -4,6 +4,7 @@ import XOGameBoard from './components/XOGameBoard';
 import XOGameControls from './components/XOGameControls';
 import XOGameHistory from './components/XOGameHistory';
 import style from "../app/styles/page.module.css"
+import Image from 'next/image';
 
 const Home = () => {
   const [boardSize, setBoardSize] = useState(3); // Default board size
@@ -32,8 +33,7 @@ const Home = () => {
       <div className={style.Background}>
         <div className={style.container}>
           <div className={style.containerHeader}>
-            <h1 className={style.x}>X</h1>
-            <h1 className={style.o}>O</h1>
+          <Image src="/XO1.jpg" alt="X" width={250} height={250} className={style.logo} />
           </div>
           <XOGameControls onSetSize={handleSizeChange} />
           <XOGameBoard size={boardSize} updateGameHistory={updateGameHistory} onResetHistory={handleResetHistory} replayMove={replayMove} />
