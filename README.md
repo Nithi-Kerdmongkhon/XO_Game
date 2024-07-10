@@ -1,10 +1,10 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-## Setup Project
-  Step 1 : Install Visual Studio Code , node.js v18.17.0
+## Setup And Run Project
+  Step 1 : Install Visual Studio Code , node.js 
   
-  Step 2 : Open project XO_Game with Vs code.
+  Step 2 : Open project XO_Game with Visual Studio Code.
   
-  Step 3 : 
+  Step 3 : Run project with the command 'npm run dev' on Terminal in Visual Studio Code.
 
 ## Getting Started
 
