@@ -1,0 +1,48 @@
+.board {
+  display: grid;
+  gap: 5px; /* เพิ่มช่องว่างระหว่างเซลล์ถ้าต้องการ */
+}
+
+.cell {
+  width: 128px; /* ขนาดความกว้างใหม่ของเซลล์เพิ่ม 60% จาก 80px */
+  height: 128px; /* ขนาดความสูงใหม่ของเซลล์เพิ่ม 60% จาก 80px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5em; /* ขนาดฟอนต์เพิ่ม 60% จาก 2em */
+  font-weight: 900;
+  background-color: #000000;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  user-select: none;
+}
+.cell.X {
+  color: rgb(255, 0, 0); /* สีแดงสำหรับ X */
+}
+
+.cell.O {
+  color: rgb(0, 255, 0); /* สีเขียวสำหรับ O */
+}
+
+
+.cell:hover {
+  background-color: #292929;
+}
+.BTNReset{
+  margin: 30px;
+  font-family: "Rowdies", sans-serif;
+  font-size: 20px;
+  border-radius: 10px;
+  height: 40px;
+  
+}
+.status {
+  font-size: 24px; /* ขนาดของตัวอักษร */
+  color: #121212; /* สีของตัวอักษร */
+  text-align: center; /* จัดให้อยู่ตรงกลาง */
+  margin-top: 20px; /* ระยะห่างด้านบน */
+  padding: 10px; /* ระยะห่างภายใน */
+  background-color: rgb(255, 217, 0); /* สีพื้นหลัง */
+  border-radius: 8px; /* มุมโค้ง */
+}
+

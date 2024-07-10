@@ -1,0 +1,102 @@
+.containerHistory {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    font-family: "Rowdies", sans-serif;
+  }
+  
+  .playHistory {
+    flex: 1;
+    margin: 0 20px;
+  }
+  
+  .playHistory h3 {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .table {
+    width: 60%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+    
+  }
+  .table tr th {
+    color: black;
+    
+  }
+  
+  .table td {
+    min-width: 150px;
+  }
+  
+  .button {
+    padding: 8px 12px;
+    margin: 4px 0;
+    background-color: #8f8f8f;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    
+  }
+  
+  .button:hover {
+    background-color: #ffffff;
+  }
+  .contenHistory h2{
+    display: flex;
+    justify-content: center;
+  }
+  .table  .playerXHeader {
+    background-color:rgb(255, 0, 0) ;
+    font-size: 20px;
+    color: rgb(0, 0, 0); 
+    
+  }
+  .table  .botOHeader {
+    background-color: rgb(0, 255, 0) ;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    
+  }
+  .button:hover {
+    background-color: #ffffff;
+  }
+  
+  .button.redText {
+    background-color:rgb(255, 0, 0); /* Red color for Player (X) */
+    border-radius: 10px;
+    font-size:15px;
+    font-weight:700;
+    color: rgb(0, 0, 0); /* White text color */
+  }
+  
+  .button.greenText {
+    background-color: rgb(0, 255, 0); /* Green color for Bot (O) */
+    border-radius: 10px;
+    font-size:15px;
+    font-weight:700;
+    color: rgb(0, 0, 0); /* White text color */
+  }
+  
+  .button.redText:hover {
+    background-color: #ff9c8a; /* Light red on hover */
+  }
+  
+  .button.greenText:hover {
+    background-color: #8eff8a; /* Light green on hover */
+  }
+  
+ 
+ 
+  
+ 

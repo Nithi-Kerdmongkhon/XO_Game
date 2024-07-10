@@ -1,0 +1,25 @@
+.container {
+    margin-top: 10px;
+    font-family: "Rowdies", sans-serif;
+}
+.container  form{
+    margin-bottom: 20px;
+    font-family: "Rowdies", sans-serif;
+}
+.container button{
+    font-family: "Rowdies", sans-serif;
+    font-size: 20px;
+    border-radius: 10px;
+    height: 40px;
+}
+.container input{
+    
+    font-family: "Rowdies", sans-serif;
+    font-size: 20px;
+    box-sizing: content-box;
+    border-radius: 10px;
+}
+.container label{
+    font-family: "Rowdies", sans-serif;
+    font-size: 20px;
+}
