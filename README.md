@@ -4,9 +4,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   
   Step 2 : Open project "XO_Game" with Visual Studio Code.
   
-  Step 3 : Run project with the command ```bash
+  Step 3 : Run project with the command 
+  ```bash
 npm run dev
-``` on Terminal in Visual Studio Code.
+``` on
+Terminal in Visual Studio Code.
 
 ## Getting Started
 
