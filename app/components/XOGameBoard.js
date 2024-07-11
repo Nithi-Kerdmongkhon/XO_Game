@@ -71,6 +71,7 @@ const XOGameBoard = ({ size, updateGameHistory, onResetHistory, replayMove }) =>
 
   // ฟังก์ชันสำหรับการเคลื่อนไหวของบอท
   const handleBotMove = () => {
+    if (status) return; // ถ้ามีผู้ชนะแล้ว บอทจะไม่ทำการเคลื่อนไหว
     const availableMoves = [];
     for (let i = 0; i < size; i++) {
       for (let j = 0; j < size; j++) {
@@ -111,39 +112,45 @@ const XOGameBoard = ({ size, updateGameHistory, onResetHistory, replayMove }) =>
       if (board.every(row => row[i] && row[i] === board[0][i])) {
         return `Winner is ${board[0][i]}`; // ผู้ชนะในคอลัมน์
       }
+      // ตรวจสอบเส้นทแยงมุมหลัก
     }
-
-    // ตรวจสอบเส้นทแยงมุมหลัก
     if (board.every((row, index) => row[index] && row[index] === board[0][0])) {
       return `Winner is ${board[0][0]}`;
     }
-
     // ตรวจสอบเส้นทแยงมุมรอง
     if (board.every((row, index) => row[size - 1 - index] && row[size - 1 - index] === board[0][size - 1])) {
       return `Winner is ${board[0][size - 1]}`;
     }
-
     // ตรวจสอบการเสมอ
     if (board.flat().every(cell => cell)) {
       return 'Draw';
     }
-
     // ไม่มีผู้ชนะหรือเสมอ
     return null;
+    
   };
 
   // ฟังก์ชันสำหรับการแสดงแต่ละช่องบนกระดาน
   const renderCell = (row, col) => {
-    if (!board[row]) return null; // ตรวจสอบว่า board[row] ไม่เป็น undefined
+    // ตรวจสอบว่า board[row] ไม่เป็น undefined
+    if (!board[row]) return null;
+    
+    // ดึงค่าของเซลล์จากกระดานที่ตำแหน่งแถวและคอลัมน์ที่กำหนด
     const cellValue = board[row][col];
-    const cellClass = cellValue === 'X' ? 'cell X' : 'cell O'; // เพิ่ม class ตามค่าในช่อง
-
+    
+    // กำหนด class ของเซลล์ตามค่าที่อยู่ในเซลล์นั้น ('X' หรือ 'O')
+    const cellClass = cellValue === 'X' ? 'cell X' : 'cell O';
+    
+    // แสดงผลเซลล์เป็น div ที่มี class ตามค่าในเซลล์
+    // กำหนด key ให้กับ div เพื่อลดการ re-render ที่ไม่จำเป็น
+    // เพิ่ม event onClick เพื่อตรวจจับการคลิกที่เซลล์และเรียกใช้ handleClick
     return (
       <div className={cellClass} key={`${row}-${col}`} onClick={() => handleClick(row, col)}>
         {cellValue}
       </div>
     );
   };
+  
 
   // แสดงผลกระดานเกม
   return (
