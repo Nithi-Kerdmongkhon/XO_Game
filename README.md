@@ -7,7 +7,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   Step 3 : Run project with the command ``` npm run dev ``` on Terminal in Visual Studio Code.
 
 ## Design Program
-
+![Design](https://github.com/Nithi-Kerdmongkhon/XO_Game/assets/108142955/a6193330-bcd0-4f95-b2be-064d2e92cbe7)
 
 
 ## Algorithm
