@@ -12,7 +12,7 @@
   ### Render Cell
   ![Render Cell Diagram](https://github.com/Nithi-Kerdmongkhon/XO_Game/assets/108142955/2a9462c5-731a-49ae-89a7-82ed991d83da)
   ### Bot Move
-  ![Bot Move](https://github.com/Nithi-Kerdmongkhon/XO_Game/assets/108142955/7c13c3e3-f762-40f1-b4e8-7be752b91403)
+  ![Bot Move](https://github.com/Nithi-Kerdmongkhon/XO_Game/assets/108142955/e6cac7cd-2426-4959-82ed-3fb1dcf54745)
   ### Check Win
   ![Check win](https://github.com/Nithi-Kerdmongkhon/XO_Game/assets/108142955/927cf477-5afd-492d-9fb8-527e9db168a3)
   ### History
