@@ -22,5 +22,3 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Deploy on Vercel
 
 You can try playing the game from [XO_Game](https://xo-game-pi.vercel.app/) 
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
