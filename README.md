@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
 ## Setup And Run Project
   Step 1 : Install Visual Studio Code , node.js 
   
@@ -19,6 +19,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   ![History](https://github.com/Nithi-Kerdmongkhon/XO_Game/assets/108142955/a7fcd577-e30e-4d10-8a01-8ebc07f9bf3f)
 
 
-## Deploy on Vercel
+## Note
 
 You can try playing the game from [XO_Game](https://xo-game-pi.vercel.app/) 
