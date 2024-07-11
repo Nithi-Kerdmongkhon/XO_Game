@@ -21,6 +21,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [XO_Game](https://xo-game-pi.vercel.app/) from the creators of Next.js.
+You can try playing the game from [XO_Game](https://xo-game-pi.vercel.app/) 
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
